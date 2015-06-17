@@ -9,7 +9,7 @@ var client = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-client.stream('statuses/filter', {track: 'DockerCon'}, function(stream) {
+client.stream('statuses/filter', {track: process.env.TWITTER_TRACK}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
     var client = new MongoClient(new Server(process.env.MONGOSERVER ,"27017", {
