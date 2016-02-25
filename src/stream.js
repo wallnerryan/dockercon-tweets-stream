@@ -12,7 +12,7 @@ var client = new Twitter({
 client.stream('statuses/filter', {track: process.env.TWITTER_TRACK}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-    var client = new MongoClient(new Server(process.env.MONGOSERVER ,"27017", {
+    var client = new MongoClient(new Server(process.env.MONGODB_SERVICE_SERVICE_HOST ,"27017", {
                                 auto_reconnect: true
                             }, {
                                 numberOfRetries: 10,
