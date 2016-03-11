@@ -31,11 +31,12 @@ client.stream('statuses/filter', {track: process.env.TWITTER_TRACK}, function(st
                   }
                   else {
                      console.log(err);
- 		  }
+ 		              }
                 });
              });
          }
        });
+    client.close();
     });
   stream.on('error', function(error) {
     console.log("error getting tweets");
